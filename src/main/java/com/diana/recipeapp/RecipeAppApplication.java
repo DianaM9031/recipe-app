@@ -1,13 +1,13 @@
-package com.diana.recipe;
+package com.diana.recipeapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RecipeApplication {
+public class RecipeAppApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RecipeApplication.class, args);
+		SpringApplication.run(RecipeAppApplication.class, args);
 	}
 
 }

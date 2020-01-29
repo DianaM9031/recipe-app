@@ -1,5 +1,7 @@
 package com.diana.recipeapp.services;
 
+import com.diana.recipeapp.converters.RecipeCommandToRecipe;
+import com.diana.recipeapp.converters.RecipeToRecipeCommand;
 import com.diana.recipeapp.domain.Recipe;
 import com.diana.recipeapp.repositories.RecipeRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,7 +12,6 @@ import org.mockito.MockitoAnnotations;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
-import java.util.function.Supplier;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -22,24 +23,17 @@ class RecipeServiceImplTest {
     @Mock
     RecipeRepository recipeRepository;
 
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommand;
+
+    @Mock
+    RecipeCommandToRecipe recipeCommandToRecipe;
+
     @BeforeEach
     void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
     }
-
-    /*@Test
-    void getRecipes() throws Exception {
-        Recipe recipe = new Recipe();
-        HashSet recipeData = new HashSet();
-        recipeData.add(recipe);
-
-        when(recipeRepository.findAll()).thenReturn(recipeData);
-        Set<Recipe> recipes = recipeService.getRecipes();
-
-        assertEquals(recipes.size(), 1);
-        verify(recipeRepository, times(1)).findAll();
-    }*/
 
     @Test
     public void getRecipeByIdTest() throws Exception {

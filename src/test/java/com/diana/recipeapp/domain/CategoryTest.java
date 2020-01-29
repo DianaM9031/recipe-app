@@ -23,10 +23,10 @@ class CategoryTest {
     }
 
     @Test
-    void getDescription() {
+    void getDescription() throws Exception {
     }
 
     @Test
-    void getRecipes() {
+    void getRecipes() throws Exception {
     }
 }
